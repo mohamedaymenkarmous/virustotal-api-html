@@ -70,6 +70,14 @@ Then, run the [VirusTotal.py](VirusTotal.py) script:
 python3 ./VirusTotal.py
 ```
 
+## Examples
+
+### IP Addresses reports
+
+This is a copy of the [output](output) folder that contains the reports (HTML and PNG screenshot) of 2 analyzed IPs: [example_output](example_output):
+![Screenshot1](example_output/192.160.102.164-VirusTotal.png)
+![Screenshot2](example_output/216.58.213.131-VirusTotal.png) 
+
 ## Reporting an issue or a feature request
 
 Issues and feature requests are tracked in the Github [issue tracker](https://github.com/mohamedaymenkarmous/virustotal-api-html/issues).
