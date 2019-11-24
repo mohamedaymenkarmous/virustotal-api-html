@@ -15,6 +15,7 @@ This project only support IP address analysis.
 
 **TO DO** on the next releases:
 - Adding the <a> HREF in the HTML reports to redirect the user to the VirusTotal website if he want to follow any file result there.
+- Compressing and reducing the size of the PNG files
 - Adding a "retry analysis" with a different API key if one of the API keys reaches the limit for sending requests (per minute/day/month).
 - Adding a "retry analysis" with a waiting time if the analysis fails due to reaching the limit for sending requests (per minute/day/month).
 - Adding domain analysis.
