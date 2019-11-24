@@ -1,0 +1,37 @@
+{
+  "General": {
+     "OutputDir": "output",
+     "TablesClass": "table table-sm",
+     "HTMLHeader": "<style>td{white-space:nowrap;}.h3{display:inline;}</style><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'></script>"
+  },
+  "VirusTotal": {
+    "APIKeys": [
+      "YOUR_VIRUS_TOTAL_API_KEY",
+      "ANOTHER_OPTIONAL_VIRUS_TOTAL_API_KEY_IF_YOU_NEED_MORE"
+    ],
+    "DisabledAttr": ["whois_timestamp","continent","asn","network","whois","country","response_code","as_owner","verbose_msg","last_https_certificate","https_certificate_date"],
+    "MaxResults": {
+      "resolutions": 10,
+      "detected_urls": 10,
+      "undetected_urls": 3,
+      "detected_downloaded_samples": 10,
+      "undetected_downloaded_samples": 3,
+      "detected_communicating_samples": 10,
+      "undetected_communicating_samples": 3,
+      "detected_referrer_samples": 10,
+      "undetected_referrer_samples": 3
+    },
+    "Order": ["resolutions","detected_urls","detected_downloaded_samples","detected_communicating_samples","detected_referrer_samples"],
+    "AttrSubstitution": {
+      "resolutions": "Passive DNS",
+      "detected_urls": "URLs",
+      "undetected_urls": "URLs",
+      "detected_downloaded_samples": "Downloaded Files",
+      "undetected_downloaded_samples": "Downloaded Files",
+      "detected_communicating_samples": "Communicating Files",
+      "undetected_communicating_samples": "Communicating Files",
+      "detected_referrer_samples": "Files Referring",
+      "undetected_referrer_samples": "Files Referring"
+    }
+  }
+}
