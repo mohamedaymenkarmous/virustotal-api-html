@@ -301,7 +301,7 @@ class VirusTotal:
       imgkit.from_string(html, output+ip+'-VirusTotal.png')
       with open(output+ip+'-VirusTotal.html', 'w') as HTMLFile:
         HTMLFile.write(html)
-      self.PNG=self.PNG+"<img src='"+ip+"-VirusTotal.html'><br/>"
+      self.PNG=self.PNG+"<img src='"+ip+"-VirusTotal.png'><br/>"
 
   def updateGeneralHTML(self):
     HTMLPrefix='<html><head>'+HTMLHeader+'</head><body>'
