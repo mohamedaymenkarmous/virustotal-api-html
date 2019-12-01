@@ -4,6 +4,7 @@ import json
 from virus_total_apis import PublicApi as VirusTotalPublicApi
 from json2html import *
 import imgkit
+import hashlib
 
 class VirusTotal:
 
@@ -105,7 +106,7 @@ class VirusTotal:
           break
         obj={'Date resolved':"", 'Domain':""}
         obj['Date resolved']=elem['last_resolved']
-        obj['Domain']=elem['hostname']
+        obj['Domain']='<a href="https://www.virustotal.com/gui/domain/'+elem['hostname']+'/details">'+elem['hostname']+'</a>'
         result.append(obj)
         count=count-1
       return result
@@ -125,7 +126,7 @@ class VirusTotal:
         obj['Detections']='<span style="color:'+color+'">'+str(elem['positives'])+"</span>/"+str(elem['total'])
         #response=VTInstance.get_file_report(elem['sha256'])
         #print(response)
-        obj['File Hash (sha256)']=elem['sha256']
+        obj['File Hash (sha256)']='<a href="https://www.virustotal.com/gui/file/'+elem['sha256']+'/detection">'+elem['sha256']+'</a>'
         result.append(obj)
         count=count-1
       return result
@@ -145,7 +146,7 @@ class VirusTotal:
         obj['Detections']='<span style="color:'+color+'">'+str(elem['positives'])+"</span>/"+str(elem['total'])
         #response=VTInstance.get_file_report(elem['sha256'])
         #print(response)
-        obj['URL']=elem['url']
+        obj['URL']='<a href="https://www.virustotal.com/gui/url/'+hashlib.sha256(elem['url'].encode('utf-8')).hexdigest()+'/detection">'+elem['url']+'</a>'
         result.append(obj)
         count=count-1
       return result
@@ -165,7 +166,7 @@ class VirusTotal:
         obj['Detections']='<span style="color:'+color+'">'+str(elem[2])+"</span>/"+str(elem[3])
         #response=VTInstance.get_file_report(elem['sha256'])
         #print(response)
-        obj['URL']=elem[0]
+        obj['URL']='<a href="https://www.virustotal.com/gui/url/'+elem[1]+'/detection">'+elem[0]+'</a>'
         result.append(obj)
         count=count-1
       return result
@@ -250,7 +251,7 @@ class VirusTotal:
         elif attr=='undetected_urls':
           newAttr=AttrSubstitution[attr] if attr in AttrSubstitution else attr
           tmp=self.formatArrayDateScoreURLnum(ip_report_api,attr)
-          self.updateScoredAttr("URLs","benign",len(self.getNumberBenign(ip_report_api,attr)))
+          self.updateScoredAttr(newAttr,"benign",len(self.getNumberBenign(ip_report_api,attr)))
           if newAttr in result:
             result[newAttr]=result[newAttr]+tmp
           else:
