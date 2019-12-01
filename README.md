@@ -49,7 +49,7 @@ The most important thing is the VirusTotal API Keys. You need at least one API K
 The main python script [VirusTotal.py](VirusTotal.py) will use all the API keys with rotating over them every time a request will be performed and the last used API key will be remembered by its index.
 
 Other pre-configured sections:
-- General > OutputDir: it's the location where the HTML and PNG files will be created. If you are using a VPS instance without GUI and you want to view the reports, you can install a web server over there and choose the output directory inside the Web Document Root directory.
+- General > OutputDir: it's the location where the HTML and JPG files will be created. If you are using a VPS instance without GUI and you want to view the reports, you can install a web server over there and choose the output directory inside the Web Document Root directory.
 - General > TablesClass: it's the <table> class atrribute's value that will be set on the HTML reports. The default class was set to have a table style inherited from Bootstrap.
 - General > HTMLHeader: it's the HTML code that will be set on the HTML <header>. So if you have need to add custom styles/header, you should put it there.
 - VirusTotal > DisabledAttr: it's the list of the attributes that will not be viewed on the reports. This include Whois results and the last used HTTPS certificate results.
@@ -74,9 +74,9 @@ python3 ./VirusTotal.py
 
 ### IP Addresses reports
 
-This is a copy of the [output](output) folder that contains the reports (HTML and PNG screenshot) of 2 analyzed IPs: [example_output](example_output):
-![Screenshot1](example_output/192.160.102.164-VirusTotal.png)
-![Screenshot2](example_output/216.58.213.131-VirusTotal.png) 
+This is a copy of the [output](output) folder that contains the reports (HTML and JPG screenshot) of 2 analyzed IPs: [example_output](example_output):
+![Screenshot1](example_output/192.160.102.164-VirusTotal.jpg)
+![Screenshot2](example_output/216.58.213.131-VirusTotal.jpg) 
 
 ## Reporting an issue or a feature request
 
