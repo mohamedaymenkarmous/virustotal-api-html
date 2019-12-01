@@ -43,7 +43,7 @@ class VirusTotal:
     global VTInstance
     VTInstance = VirusTotalPublicApi(APIKEY)
     self.HTML=""
-    self.PNG=""
+    self.IMG=""
 
   def preHandling(self):
     self.number={}
@@ -282,8 +282,8 @@ class VirusTotal:
 
   def getHTML(self,ip_report_filtered,ip):
       html=""
+      html=html+"<h3>IP Address: "+ip+"</h3>"
       for elem in list(ip_report_filtered):
-        html=html+"<h3>Adresse IP:"+ip+"</h3>"
         html=html+"<h4>"+elem+"</h4>"
         if elem in self.number and self.number[elem]:
           malicious=self.number[elem]["malicious"] if "malicious" in self.number[elem] else 0
@@ -298,20 +298,20 @@ class VirusTotal:
       html=html+'</body></html>'
       output=OutputDir+"/"
       #print(html)
-      imgkit.from_string(html, output+ip+'-VirusTotal.png')
+      imgkit.from_string(html, output+ip+'-VirusTotal.jpg')
       with open(output+ip+'-VirusTotal.html', 'w') as HTMLFile:
         HTMLFile.write(html)
-      self.PNG=self.PNG+"<img src='"+ip+"-VirusTotal.png'><br/>"
+      self.IMG=self.IMG+"<img src='"+ip+"-VirusTotal.jpg'><br/>"
 
   def updateGeneralHTML(self):
     HTMLPrefix='<html><head>'+HTMLHeader+'</head><body>'
     self.HTML=HTMLPrefix+self.HTML+'</body></html>'
-    self.PNG=HTMLPrefix+self.PNG+'</body></html>'
+    self.IMG=HTMLPrefix+self.IMG+'</body></html>'
     output=OutputDir+"/"
     with open(output+'latest-HTML-VirusTotal.html', 'w') as HTMLFile:
       HTMLFile.write(self.HTML)
-    with open(output+'latest-PNG-VirusTotal.html', 'w') as HTMLFile:
-      HTMLFile.write(self.PNG)
+    with open(output+'latest-IMG-VirusTotal.html', 'w') as HTMLFile:
+      HTMLFile.write(self.IMG)
 
 def main():
   vt=VirusTotal()
