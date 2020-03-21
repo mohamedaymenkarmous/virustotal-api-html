@@ -1,9 +1,9 @@
 <?php
 $config = file_get_contents("../config.json");
-if ($config === false) {header("Location: /?invalid_config");}
+if ($config === false) {header("Location: /?invalid_config");exit();}
 
 $json_config = json_decode($config, true);
-if ($json_config === null) {header("Location: /?invalid_config");}
+if ($json_config === null) {header("Location: /?invalid_config");exit();}
 $found=false;
 $scanned_ip="";
 $valid=false;
@@ -19,9 +19,9 @@ if($json_config["VirusTotal"]["Persistence"]=="SQL"){
  $dbname = $json_config["VirusTotal"]["PersistenceCredentials"]["database"];
  if(isset($_POST) && !empty($_POST)){
   $scanned_ip=isset($_POST['ip']) && !empty($_POST['ip'])  && !is_array($_POST['ip']) ? $_POST['ip'] : "";
-  if(!$scanned_ip)header("Location: /?invalid_ip");
+  if(!$scanned_ip){header("Location: /?invalid_ip");exit();}
   if (filter_var($scanned_ip, FILTER_VALIDATE_IP)) {
-  } else {header("Location: /?invalid_ip");}
+  } else {header("Location: /?invalid_ip");exit();}
 
   $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
   $recaptcha_secret = $json_config["Recaptcha"]["PrivateKey"];
@@ -36,7 +36,7 @@ if($json_config["VirusTotal"]["Persistence"]=="SQL"){
     // Verified
   } else {
     // Not verified
-    header("Location: /?invalid_captcha");
+    header("Location: /?invalid_captcha");exit();
   }
 
   $valid=true;
