@@ -4,11 +4,28 @@
      "TablesClass": "table table-sm",
      "HTMLHeader": "<style>td{white-space:nowrap;}.h3{display:inline;}</style><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'></script>"
   },
+  "Recaptcha": {
+    "PublicKey" : "--REDACTED--",
+    "PrivateKey" : "--REDACTED--"
+  },
   "VirusTotal": {
     "APIKeys": [
       "YOUR_VIRUS_TOTAL_API_KEY",
       "ANOTHER_OPTIONAL_VIRUS_TOTAL_API_KEY_IF_YOU_NEED_MORE"
     ],
+    "Input": "Argument",
+    "GeneralOutput": "0",
+    "Persistence": "SQL",
+    "PersistenceCredentials": {
+      "host":"localhost",
+      "database":"vt_scanned_ips_db",
+      "username_r":"--REDACTED--",
+      "password_r":"--REDACTED--",
+      "username_rw":"--REDACTED--",
+      "password_rw":"--REDACTED--",
+      "username_u":"--REDACTED--",
+      "password_u":"--REDACTED--"
+    },
     "DisabledAttr": ["whois_timestamp","continent","asn","network","whois","country","response_code","as_owner","verbose_msg","last_https_certificate","https_certificate_date"],
     "MaxResults": {
       "resolutions": 10,

@@ -26,7 +26,7 @@ You need to download this project and install the Linux packages and the Python3
 ```
 git clone https://github.com/mohamedaymenkarmous/virustotal-api-html
 cd virustotal-api-html
-python ./setup.py
+./setup.sh
 ```
 
 ## Configuration
@@ -51,6 +51,12 @@ Other pre-configured sections:
 - General > OutputDir: it's the location where the HTML and JPG files will be created. If you are using a VPS instance without GUI and you want to view the reports, you can install a web server over there and choose the output directory inside the Web Document Root directory.
 - General > TablesClass: it's the <table> class atrribute's value that will be set on the HTML reports. The default class was set to have a table style inherited from Bootstrap.
 - General > HTMLHeader: it's the HTML code that will be set on the HTML <header>. So if you have need to add custom styles/header, you should put it there.
+- Recaptcha > PublicKey: it's the Recaptcha V3 (please not the version number) public key that is set in the form and that will be sent with the input.
+- Recaptcha > PrivateKey: it's the Recaptcha V3 (please not the version number) private key that will be used to validate the recaptcha response in the back-end.
+- VirusTotal > Input: it refers to the input that will be scanned (IP address, domain name, file hash, URL) if it's get from the script arguments `Argument` or from the input_ip.txt file `File`.
+- VirusTotal > GeneralOutput: if this value is set to "1", the files `<output>/latest-VirusTotal.html` and `<output>/latest-VirusTotal.jpg` will be created. Otherwise ("0"), those files will not be created. This feature is needed for a bluk input (multiple values) that will be scanned and the result from the different pages will be regrouped in a single page.
+- VirusTotal > Persistence: it refers to the output if it needs to be saved in the database (mysql) `SQL` or not `None`.
+- VirusTotal > PersistenceCredentials: this list contains the mysql configuration to get access to the database, the table and to select, update and insert the data.
 - VirusTotal > DisabledAttr: it's the list of the attributes that will not be viewed on the reports. This include Whois results and the last used HTTPS certificate results.
 - VirusTotal > MaxResults: as said above, some results returned by the VirusTotal API can reach the 100 results (detected and undetected attributes) and others reach 1000 results (resolutions attribute). This will created a long report. So if you want to limit the output, you can fix it.
 - VirusTotal > Order: it's a list that contains the priority section names (attributes) that should be set on the head of the report. If there is at least one element on this list, the order feature will be enabled. If there are another section names that are not set on this list, they will be set at the end of the list.

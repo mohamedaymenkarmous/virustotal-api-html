@@ -1,3 +1,3 @@
 .records.tmp
-output/*
+www/output/*
 config.json

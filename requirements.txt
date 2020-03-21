@@ -2,3 +2,4 @@ requests
 virustotal-api
 json2html
 imgkit
+mysql-connector-python
